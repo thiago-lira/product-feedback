@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Core.Data;
-using Core.DTOs;
 using Core.Models;
 
 namespace Core.Repositories
@@ -11,9 +10,9 @@ namespace Core.Repositories
         {
         }
 
-        public async Task SaveAsync(UserCreateDTO userCreateDTO)
+        public async Task SaveAsync(User user)
         {
-            await dbSet.AddAsync(userCreateDTO.ToModel());
+            await dbSet.AddAsync(user);
             await context.SaveChangesAsync();
         }
     }
