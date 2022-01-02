@@ -20,6 +20,9 @@ namespace Core.Data
         {
             builder.Entity<User>().HasKey(u => u.Id);
             builder.Entity<User>().HasIndex(u => u.Username).IsUnique();
+
+            builder.Entity<Category>().HasKey(c => c.Id);
+            builder.Entity<Category>().HasIndex(c => c.Title).IsUnique();
         }
     }
 }
