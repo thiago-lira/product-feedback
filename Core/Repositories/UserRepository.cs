@@ -10,6 +10,11 @@ namespace Core.Repositories
         {
         }
 
+        public async Task<User> FindAsync(int id)
+        {
+            return await dbSet.FindAsync(id);
+        }
+
         public async Task SaveAsync(User user)
         {
             await dbSet.AddAsync(user);
