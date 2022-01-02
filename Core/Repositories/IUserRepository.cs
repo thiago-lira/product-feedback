@@ -6,5 +6,6 @@ namespace Core.Repositories
     public interface IUserRepository
     {
         Task SaveAsync(User user);
+        Task<User> FindAsync(int id);
     }
 }

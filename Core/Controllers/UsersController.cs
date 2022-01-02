@@ -17,9 +17,16 @@ namespace Core.Controllers
 
         [HttpGet("{id:int}")]
         [ActionName(nameof(GetAsync))]
-        public IActionResult GetAsync(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
-            return Ok();
+            var user = await _userRepository.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(new UserReadDTO(user));
         }
 
         [HttpPost]
