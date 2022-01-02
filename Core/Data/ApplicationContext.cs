@@ -23,6 +23,11 @@ namespace Core.Data
 
             builder.Entity<Category>().HasKey(c => c.Id);
             builder.Entity<Category>().HasIndex(c => c.Title).IsUnique();
+
+            builder.Entity<Comment>()
+                .HasOne(comment => comment.Author)
+                .WithMany(author => author.Comments)
+                .HasForeignKey(comment => comment.AuthorId);
         }
     }
 }
