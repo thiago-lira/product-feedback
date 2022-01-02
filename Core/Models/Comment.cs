@@ -6,7 +6,7 @@ namespace Core.Models
     {
         public int AuthorId { get; set; }
         [Required]
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
         [Required]
         public string Message { get; set; }
 
